@@ -119,7 +119,6 @@ class DriverCreationFormTest(TestCase):
         self.form = DriverCreationForm(data=self.form_data)
 
     def test_form_valid(self):
-        print(self.form.errors)
         self.assertTrue(self.form.is_valid())
 
     def test_form_save(self):
