@@ -1,4 +1,3 @@
-from ast import In
 from django.test import TestCase
 from .models import Driver, Car, Manufacturer
 from django.db import IntegrityError
