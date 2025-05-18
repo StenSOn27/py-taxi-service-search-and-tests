@@ -1,4 +1,3 @@
-from logging import PlaceHolder
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
@@ -60,7 +59,7 @@ class CarModelSearchForm(forms.Form):
         label="",
         widget=forms.TextInput(
             attrs={
-                "PlaceHolder": "Search by model",
+                "placeHolder": "Search by model",
                 "class": "search-input"
             }
         )
@@ -74,7 +73,7 @@ class DriverUsernameSearchForm(forms.Form):
         label="",
         widget=forms.TextInput(
             attrs={
-                "PlaceHolder": "Search by username",
+                "placeHolder": "Search by username",
                 "class": "search-input"
             }
         )
@@ -88,7 +87,7 @@ class ManufacturerNameSearchForm(forms.Form):
         label="",
         widget=forms.TextInput(
             attrs={
-                "PlaceHolder": "Search by name",
+                "placeHolder": "Search by name",
                 "class": "search-input"
             }
         )
