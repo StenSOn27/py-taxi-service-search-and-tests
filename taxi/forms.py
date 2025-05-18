@@ -59,7 +59,7 @@ class CarModelSearchForm(forms.Form):
         label="",
         widget=forms.TextInput(
             attrs={
-                "placeHolder": "Search by model",
+                "placeholder": "Search by model",
                 "class": "search-input"
             }
         )
@@ -73,7 +73,7 @@ class DriverUsernameSearchForm(forms.Form):
         label="",
         widget=forms.TextInput(
             attrs={
-                "placeHolder": "Search by username",
+                "placeholder": "Search by username",
                 "class": "search-input"
             }
         )
@@ -87,7 +87,7 @@ class ManufacturerNameSearchForm(forms.Form):
         label="",
         widget=forms.TextInput(
             attrs={
-                "placeHolder": "Search by name",
+                "placeholder": "Search by name",
                 "class": "search-input"
             }
         )
