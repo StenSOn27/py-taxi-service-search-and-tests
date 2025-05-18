@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
@@ -174,11 +174,16 @@ class DriverDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 @login_required
 def toggle_assign_to_car(request, pk):
+    try:
+        car = Car.objects.get(id=pk)
+    except Car.DoesNotExist:
+        raise Http404("Car not found")
+
     driver = Driver.objects.get(id=request.user.id)
-    if (
-        Car.objects.get(id=pk) in driver.cars.all()  # type: ignore
-    ):  # probably could check if car exists
-        driver.cars.remove(pk)  # type: ignore
+
+    if car in driver.cars.all():  # type: ignore[attr-defined]
+        driver.cars.remove(car)  # type: ignore[attr-defined]
     else:
-        driver.cars.add(pk)  # type: ignore
+        driver.cars.add(car)  # type: ignore[attr-defined]
+
     return HttpResponseRedirect(reverse_lazy("taxi:car-detail", args=[pk]))
