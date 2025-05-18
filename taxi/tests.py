@@ -52,6 +52,7 @@ class CarModelTest(TestCase):
             name="Toyota",
             country="Japan"
         )
+        manufacturer.save() # Save the manufacturer first
         car = Car(
             model="Corolla",
             manufacturer=manufacturer
